@@ -5,7 +5,8 @@ import Hero from './components/Hero'
 import Footer from './components/Footer'
 
 import NotFound from './components/NotFound'
-import Login from './components/Login';
+import Login from './components/Login'
+import Register from './components/Register'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
+          <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Hero} />
           <Route component={NotFound} />
