@@ -4,8 +4,8 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 
-import NotFound from './components/NotFound'
 import Login from './components/Login'
+import NotFound from './components/NotFound'
 import Register from './components/Register'
 
 function App() {

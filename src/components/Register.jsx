@@ -44,7 +44,7 @@ class Register extends Component {
                 <div className="field-body">
                   <div className="field">
                     <p className="control is-expanded has-icons-left">
-                      <input className="input" type="text" placeholder="Email" />
+                      <input className="input" type="email" placeholder="Email" />
                       <span className="icon is-small is-left">
                         <i className="fas fa-envelope" />
                       </span>
@@ -78,7 +78,7 @@ class Register extends Component {
                     <div className="field-body">
                       <div className="field">
                         <p className="control is-expanded has-icons-left">
-                          <input className="input" type="text" placeholder="Password" />
+                          <input className="input" type="password" placeholder="Password" />
                           <span className="icon is-small is-left">
                             <i className="fas fa-key" />
                           </span>
