@@ -1,9 +1,11 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Hero from './components/Hero'
 import Footer from './components/Footer'
 
-import Hero from './components/Hero'
+import NotFound from './components/NotFound'
+import Login from './components/Login';
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
+          <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Hero} />
+          <Route component={NotFound} />
         </Switch>
         <Footer />
       </div>
