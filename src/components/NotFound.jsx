@@ -13,7 +13,7 @@ const NotFound = () => {
           <img src={notFoundImage} alt="Not Found"/>
         </figure>
         <a className="button is-warning is-medium" href="https://www.google.com/">
-          Just Take Me To Google...
+          Take Me Home
         </a>
       </div>
     </section>
