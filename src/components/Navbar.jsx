@@ -48,7 +48,7 @@ class Navbar extends Component {
             </div>
           </div>
         </div>
-        <style jsx="true">{`
+        <style jsx="">{`
           .margin-left {
             margin-left: 0.5rem;
           }
