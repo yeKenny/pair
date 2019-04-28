@@ -76,7 +76,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "node scripts/start.js & node server/index.js",
+    "start": "node server/index.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "seed": "node scripts/seed.js"
@@ -149,5 +150,5 @@
     ]
   },
   "proxy": "http://localhost:8080",
-  "homepage": "https://yeKenny.github.io/pair"
+  "homepage": "https://yeKenny.github.io/"
 }
