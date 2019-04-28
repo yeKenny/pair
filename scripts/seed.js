@@ -15,12 +15,10 @@ async function seed() {
       email: faker.internet.email(),
       username: faker.internet.userName(),
       password: faker.internet.password(),
+      image: faker.image.avatar()
     }))
 
   await User.bulkCreate(users)
-
-  console.log(`seeded ${users.length} users`)
-  console.log(`seeded successfully`)
 }
 
 async function runSeed() {

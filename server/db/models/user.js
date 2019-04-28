@@ -57,6 +57,9 @@ const User = db.define('users', {
   googleId: {
     type: Sequelize.STRING
   },
+  image: {
+    type: Sequelize.STRING
+  }
 })
 
 User.prototype.correctPassword = function (candidatePwd) {

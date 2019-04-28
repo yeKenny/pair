@@ -7,12 +7,14 @@
     "@svgr/webpack": "4.1.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
+    "axios": "^0.18.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.7.1",
     "babel-loader": "8.0.5",
     "babel-plugin-named-asset-import": "^0.3.2",
     "babel-preset-react-app": "^8.0.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "connect-session-sequelize": "^6.0.0",
     "css-loader": "2.1.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
@@ -24,6 +26,8 @@
     "eslint-plugin-jsx-a11y": "6.2.1",
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-react-hooks": "^1.5.0",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
     "faker": "^4.1.0",
     "file-loader": "3.0.1",
     "fs-extra": "7.0.1",
@@ -35,7 +39,9 @@
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "0.3.0",
     "mini-css-extract-plugin": "0.5.0",
+    "morgan": "^1.9.1",
     "optimize-css-assets-webpack-plugin": "5.0.1",
+    "passport": "^0.4.0",
     "pg": "^7.10.0",
     "pg-hstore": "^2.3.2",
     "pnp-webpack-plugin": "1.2.1",
@@ -48,7 +54,11 @@
     "react-app-polyfill": "^1.0.0",
     "react-dev-utils": "^9.0.0",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
@@ -63,7 +73,7 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "node scripts/start.js & node server/index.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "seed": "node scripts/seed.js"
@@ -134,5 +144,6 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
