@@ -77,7 +77,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "node server/index.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "heroku-postbuild": "cd src && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "seed": "node scripts/seed.js"
