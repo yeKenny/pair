@@ -43,15 +43,14 @@ class SingleUser extends React.Component {
             <div className="media-right">
               {!this.state.requestSent
               ? <button className="button is-success" onClick={this.handleClick}>Add</button>
-              : <button className="button is-success" disabled>Added</button>
-              }
+              : <button className="button is-success" disabled>Added</button>}
             </div>
           </article>
         </div>
       </section>
     ) : (
       <NotFound />
-    );
+    )
   }
 }
 
