@@ -20,7 +20,7 @@ class SingleUser extends React.Component {
   }
 
   render() {
-    const {user} = this.props
+    const {loggedIn, user} = this.props
 
     return user ? (
       <section className="section has-background-primary">
@@ -41,9 +41,13 @@ class SingleUser extends React.Component {
               </div>
             </div>
             <div className="media-right">
-              {!this.state.requestSent
-              ? <button className="button is-success" onClick={this.handleClick}>Add</button>
-              : <button className="button is-success" disabled>Added</button>}
+              {
+                !loggedIn
+                ? <button className="button is-success" disabled>Log In</button>
+                : loggedIn && !this.state.requestSent
+                ? <button className="button is-success" onClick={this.handleClick}>Add</button>
+                : <button className="button is-success" disabled>Added</button>
+              }
             </div>
           </article>
         </div>
@@ -55,7 +59,8 @@ class SingleUser extends React.Component {
 }
 
 const mapState = state => ({
-  user: state.users.single
+  user: state.users.single,
+  loggedIn: !!state.users.current.id
 })
 
 const mapDispatch = dispatch => ({
