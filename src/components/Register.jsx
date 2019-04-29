@@ -11,6 +11,7 @@ class Register extends Component {
     const email = event.target.email.value
     const username = event.target.username.value
     const password = event.target.password.value
+
     this.props.register({
       firstName,
       lastName,
@@ -18,7 +19,6 @@ class Register extends Component {
       username,
       password
     })
-    console.log(this.props.user)
 
     this.props.history.push('/')
   }

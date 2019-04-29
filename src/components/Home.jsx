@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-
 const Home = props => {
   return (
     <section className="section has-background-primary">

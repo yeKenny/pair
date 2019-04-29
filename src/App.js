@@ -32,7 +32,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             {loggedIn && (
-                <Route exact path="/" component={Home} />
+                <Route exact path="/home" component={Home} />
             )}
             <Route exact path="/" component={Hero} />
             <Route component={NotFound} />

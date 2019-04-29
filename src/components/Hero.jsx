@@ -1,8 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import Home from './Home'
 
-const Hero = () => {
-  return (
+const Hero = (props) => {
+  return !props.loggedIn ? (
     <section className="hero is-large is-info">
       <div className="hero-body">
         <div className="container has-text-centered">
@@ -18,7 +20,11 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  );
+  ) : <Home />
 }
 
-export default Hero
+const mapState = state => ({
+  loggedIn: !!state.users.current.id
+})
+
+export default connect(mapState)(Hero)
