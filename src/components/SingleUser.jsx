@@ -1,8 +1,8 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from 'react'
+import {connect} from 'react-redux'
 
-import {fetchUser} from '../store/reducers/users';
-import NotFound from './NotFound';
+import {fetchUser} from '../store/reducers/users'
+import NotFound from './NotFound'
 
 
 class SingleUser extends React.Component {
@@ -43,7 +43,7 @@ class SingleUser extends React.Component {
             <div className="media-right">
               {
                 !loggedIn
-                ? <button className="button is-success" disabled>Log In</button>
+                ? <button className="button is-success" disabled>Log In To Add</button>
                 : loggedIn && !this.state.requestSent
                 ? <button className="button is-success" onClick={this.handleClick}>Add</button>
                 : <button className="button is-success" disabled>Added</button>
