@@ -1,6 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+
+import {logout} from '../store/reducers/users'
 
 class Navbar extends Component {
   state = {
@@ -37,15 +40,23 @@ class Navbar extends Component {
 
           </div>
           <div className={`navbar-menu ${this.state.expandMenu ? "is-active" : ""}`}>
-            <div className="navbar-end">
-              <Link className="navbar-item" to="/login">
-                Log In
-              </Link>
+            {!this.props.loggedIn ? (
+              <div className="navbar-end">
+                <Link className="navbar-item" to="/login">
+                  Log In
+                </Link>
 
-              <Link className="navbar-item" to="/register">
-                Register
-              </Link>
-            </div>
+                <Link className="navbar-item" to="/register">
+                  Register
+                </Link>
+              </div>
+            ) : (
+              <div className="navbar-end">
+                <Link className="navbar-item" to="/" onClick={this.props.logout}>
+                  Log Out
+                </Link>
+              </div>
+            )}
           </div>
         </div>
         <style jsx="">{`
@@ -58,4 +69,12 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar
+const mapState = state => ({
+  loggedIn: !!state.users.current.id
+})
+
+const mapDispatch = dispatch => ({
+  logout: () => dispatch(logout())
+})
+
+export default connect(mapState, mapDispatch)(Navbar)

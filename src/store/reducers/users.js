@@ -9,6 +9,7 @@ const initialState = {
 const GET_ALL_USERS = 'GET_ALL_USERS'
 const GET_CURRENT_USER = 'GET_CURRENT_USER'
 const GET_USER = 'GET_USER'
+const LOG_OUT_USER = 'LOG_OUT_USER'
 
 const getAllUsers = users => ({
   type: GET_ALL_USERS,
@@ -23,6 +24,10 @@ const getUser = user => ({
 const getCurrentUser = user => ({
   type: GET_CURRENT_USER,
   user
+})
+
+const logOutUser = () => ({
+  type: LOG_OUT_USER
 })
 
 export const fetchAllUsers = () => async (dispatch) => {
@@ -62,6 +67,15 @@ export const login = formData => async (dispatch) => {
   }
 }
 
+export const logout = () => async (dispatch) => {
+  try {
+    await axios.post('/auth/logout')
+    dispatch(logOutUser())
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_USERS:
@@ -78,6 +92,11 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         single: action.user
+      }
+    case LOG_OUT_USER:
+      return {
+        ...state,
+        current: {}
       }
     default:
       return state;
