@@ -2,10 +2,12 @@ import axios from 'axios';
 
 const initialState = {
   all: [],
-  single: {}
+  single: {},
+  current: {}
 };
 
 const GET_ALL_USERS = 'GET_ALL_USERS'
+const GET_CURRENT_USER = 'GET_CURRENT_USER'
 const GET_USER = 'GET_USER'
 
 const getAllUsers = users => ({
@@ -15,6 +17,11 @@ const getAllUsers = users => ({
 
 const getUser = user => ({
   type: GET_USER,
+  user
+})
+
+const getCurrentUser = user => ({
+  type: GET_CURRENT_USER,
   user
 })
 
@@ -40,7 +47,7 @@ export const fetchUser = userId => async (dispatch) => {
 export const getMe = () => async (dispatch) => {
   try {
     const {data} = await axios.get('/auth/me')
-    dispatch(getUser(data))
+    dispatch(getCurrentUser(data))
   } catch (err) {
     console.error(err)
   }
@@ -49,7 +56,7 @@ export const getMe = () => async (dispatch) => {
 export const login = formData => async (dispatch) => {
   try {
     const {data} = await axios.put('/auth/login', formData)
-    dispatch(getUser(data))
+    dispatch(getCurrentUser(data))
   } catch (err) {
     console.error(err)
   }
@@ -61,6 +68,11 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         all: [...action.users]
+      }
+    case GET_CURRENT_USER:
+      return {
+        ...state,
+        current: action.user
       }
     case GET_USER:
       return {
