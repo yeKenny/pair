@@ -58,6 +58,15 @@ export const getMe = () => async (dispatch) => {
   }
 }
 
+export const register = formData => async (dispatch) => {
+  try {
+    const {data} = await axios.post('/auth/register', formData)
+    dispatch(getCurrentUser(data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const login = formData => async (dispatch) => {
   try {
     const {data} = await axios.put('/auth/login', formData)
