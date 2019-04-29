@@ -37,6 +37,24 @@ export const fetchUser = userId => async (dispatch) => {
   }
 }
 
+export const getMe = () => async (dispatch) => {
+  try {
+    const {data} = await axios.get('/auth/me')
+    dispatch(getUser(data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const login = formData => async (dispatch) => {
+  try {
+    const {data} = await axios.put('/auth/login', formData)
+    dispatch(getUser(data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_USERS:

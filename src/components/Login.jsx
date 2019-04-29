@@ -1,8 +1,15 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+
+import {login} from '../store/reducers/users'
 
 class Login extends Component {
   handleSubmit = event => {
     event.preventDefault()
+    const username = event.target.username.value
+    const password = event.target.password.value
+    this.props.login({username, password})
+    this.props.history.push('/home')
   }
 
   render() {
@@ -20,7 +27,7 @@ class Login extends Component {
                 <div className="field-body">
                   <div className="field">
                     <p className="control is-expanded has-icons-left">
-                      <input className="input" type="text" placeholder="Username" />
+                      <input className="input" type="text" name="username" placeholder="Username" />
                       <span className="icon is-small is-left">
                         <i className="fas fa-child" />
                       </span>
@@ -36,7 +43,7 @@ class Login extends Component {
                 <div className="field-body">
                   <div className="field">
                     <p className="control is-expanded has-icons-left">
-                      <input className="input" type="password" placeholder="Password" />
+                      <input className="input" type="password" name="password" placeholder="Password" />
                       <span className="icon is-small is-left">
                         <i className="fas fa-key" />
                       </span>
@@ -57,4 +64,8 @@ class Login extends Component {
   }
 }
 
-export default Login
+const mapDispatch = dispatch => ({
+  login: formData => dispatch(login(formData))
+})
+
+export default connect(null, mapDispatch)(Login)

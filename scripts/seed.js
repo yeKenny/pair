@@ -18,6 +18,15 @@ async function seed() {
       image: faker.image.avatar()
     }))
 
+  users.push({
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'johndoe@gmail.com',
+    username: 'johndoe',
+    password: '12345',
+    image: faker.image.avatar()
+  })
+
   await User.bulkCreate(users)
 }
 

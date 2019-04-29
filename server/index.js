@@ -10,6 +10,8 @@ const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 8080
 const app = express()
 
+const {User} = require('./db/models')
+
 module.exports = app
 
 /**
@@ -28,7 +30,7 @@ passport.serializeUser((user, done) => done(null, user.id))
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await db.models.user.findByPk(id)
+    const user = await User.findByPk(id)
     done(null, user)
   } catch (err) {
     done(err)
@@ -60,7 +62,7 @@ const createApp = () => {
   app.use(passport.session())
 
   // auth and api routes
-  // app.use('/auth', require('./auth'))
+  app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
 
   // static file-serving middleware
