@@ -29,12 +29,16 @@ class App extends Component {
           <Switch>
             <Route exact path="/users/:id" component={SingleUser} />
             <Route exact path="/users" component={AllUsers} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
+            {!loggedIn && (
+              <Route exact path="/register" component={Register} />
+            )}
+            {!loggedIn && (
+              <Route exact path="/login" component={Login} />
+            )}
+            <Route exact path="/" component={Hero} />
             {loggedIn && (
                 <Route exact path="/home" component={Home} />
             )}
-            <Route exact path="/" component={Hero} />
             <Route component={NotFound} />
           </Switch>
           <Footer />

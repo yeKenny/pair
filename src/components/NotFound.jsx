@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import notFoundImage from '../resources/not-found.jpg'
 
@@ -12,9 +13,9 @@ const NotFound = () => {
         <figure className="image">
           <img src={notFoundImage} alt="Not Found"/>
         </figure>
-        <a className="button is-warning is-medium" href="https://www.google.com/">
+        <Link className="button is-warning is-medium" to="/">
           Take Me Home
-        </a>
+        </Link>
       </div>
     </section>
   )
